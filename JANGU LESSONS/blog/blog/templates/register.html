@@ -1,0 +1,45 @@
+{% extends 'basic/main.html' %}
+{%block title%} this is About|PAGE {%endblock%}
+{%block myblock %}
+<div class="d-flex justify-content-center align-items-center">
+    <form method="post">
+        {%csrf_token%}
+        <label>Username</label>
+        <input oninput="getUsername(this)" class="mb-2 form-control" type="text" placeholder="Enter Username" name="username">
+        <label>Email</label>
+        <input class="mb-2 form-control" type="email" placeholder="Enter Email" name="email">
+        <label>Phone number</label>
+        <input class="mb-2 form-control" type="text" placeholder="Enter Phone number" name="phone_number">
+        <label>Tipini tanlang</label>
+        <select required name="choose" class="form-select">
+            <option value="" disabled selected>Choose item</option>
+            <option value="admin">Super Admin</option>
+            <option value="user">Oddiy User</option>
+        </select>
+        <label>Password</label>
+        <input class="mb-2 form-control" type="password" placeholder="Enter Password" name="password">
+        <button id=" submit_btn" class="btn btn-success w-100 my-3" type="submit">Davay</button>
+    </form>
+</div>
+<script>
+    function getUsername(e){
+        console.log(e.value);
+        $.ajax({
+            url:"{%url 'check_username'%}",
+            type: "get",
+            data: {user:e.value},
+            success: function (data) {
+                    if(data=='bor'){
+                        e.style.background='red'
+                        submit_btn.classList.add(disabled)
+                    }else{
+                        e.style.background='transparent'
+                        submit_btn.classList.remove(disabled)
+                    }
+                console.log(data);
+                
+            }
+        })
+    }
+</script>
+{%endblock%}

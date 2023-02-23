@@ -1,0 +1,56 @@
+{% extends 'main.html' %}
+
+{% block title %}
+Create bolimi
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="container">
+    <center>
+        <div class="card card-body mt-5 w-50 shadow">
+            <form action="" method="post">
+                <div class="mt-5 w-50  mb-3">
+                    <div class="d-fles">
+                        <a href="{% url 'home_page' %}">home page</a>
+                    </div>
+                    <div class="card-title">
+                        <h4>Tavar yaratish</h4>
+                    </div>
+                </div>
+                {% csrf_token %}
+
+                <label>tavar nomi</label>
+                <input required name="title" class="form-control mb-3" type="text" placeholder="....">
+                
+                
+                <label>malumot</label>
+                <textarea required class="form-control mb-3" name="description" rows="5" placeholder="...."></textarea>
+                
+                <label>tavar narxi</label>
+                <input required name="narxi" class="form-control mb-3" type="text" placeholder="....">
+
+                <label>tavar sifati</label>
+                <select class="form-select" aria-label="Default select example">
+
+                    <option selected>Sifat</option>
+                    <option value="1">Alo</option>
+                    <option value="2">yaxshi</option>
+                    <option value="3">talabga javob bermaydi</option>
+
+                </select>
+
+                <label class="mt-2" for="complated">Bajarildi</label>
+                <input name="complated" id="complated" type="checkbox">
+
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-success w-25">Save</button>
+                </div>
+            </form>
+        </div>
+    </center>
+</div>
+
+{% endblock %}

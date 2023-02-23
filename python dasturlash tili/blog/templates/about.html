@@ -1,0 +1,41 @@
+{% extends 'basic/main.html' %}
+{% block title %} This is HOME page {% endblock %}
+
+{% block myblock %}
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-mod-12">
+            <h1>About Sahifa </h1>
+            <hr>
+            <table class="table table-bordered">
+                <thead>
+                    <th>Davlat Nomi</th>
+                    <th>Poytaxt</th>
+                    <th>Region</th>
+                    <th>Aholi sonni</th>
+                    <th>Bayroq</th>
+                </thead>
+            {%for country in countries%}
+            <tr>
+                <td>{{country.name}}</td>
+                <td>{{country.capital}}</td>
+                <td>{{country.region}}</td>
+                <td>{{country.population}}</td>
+                <td>
+                    <img src="{{country.flags.svg}}" 
+                    alt="flag"
+                    style="width: 150px;height: 150px;">
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse ratione tempore animi saepe eveniet totam magni earum. Molestias architecto at, distinctio numquam illo nesciunt quibusdam cum officia tenetur eligendi placeat quam fuga nihil sunt deleniti totam! Doloremque earum nostrum ducimus, tempore nesciunt nobis esse enim illum reiciendis, placeat consequatur molestiae provident, eveniet voluptas. Porro reiciendis consectetur facere temporibus placeat! Porro, soluta! Sed enim assumenda, molestiae cumque natus harum architecto ipsa veritatis reprehenderit, eveniet sequi consectetur similique dolorum aut corrupti quas autem. Voluptatibus hic quisquam quae dolor? Saepe, facilis sunt. Recusandae minus exercitationem, accusamus quis at quae velit sit saepe a natus, minima repellendus, possimus magni asperiores nobis molestiae! Consequatur, cumque, eveniet exercitationem quod inventore pariatur eaque, error atque nostrum asperiores sunt animi aspernatur libero. Laudantium eos aperiam dignissimos porro deserunt consectetur officiis illum. Minima a incidunt autem corrupti, exercitationem ducimus accusamus veniam debitis iusto aliquid odit placeat ex repudiandae temporibus.</p>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

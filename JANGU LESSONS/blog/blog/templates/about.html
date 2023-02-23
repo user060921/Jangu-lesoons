@@ -1,0 +1,32 @@
+{% extends 'basic/main.html' %}
+{%block title%} this is About|PAGE {%endblock%}
+{%block myblock %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>About Sahifa</h1>
+            <table class="table table-bordered">
+                <thead class="bg-dark text-light text-center">
+                    <th>Davlat Nomi</th>
+                    <th>Poytaht</th>
+                    <th>Region</th>
+                    <th>Popultion</th>
+                    <th>Flags</th>
+                </thead>
+                <tbody>
+                    {% for country in countries%}
+                    <tr>
+                        <td>{{country.name}}</td>
+                        <td>{{country.capital}}</td>
+                        <td>{{country.region}}</td>
+                        <td>{{country.population}}</td>
+                        <td><img src="{{country.flags.svg}}" alt="flag" style="width: 150px;height: 150px;"></td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor sint blanditiis assumenda voluptatibus, ea laborum animi magni tenetur omnis labore totam. Maiores, possimus sint et quae accusamus sequi veniam Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis vitae nesciunt iure obcaecati eligendi accusantium exercitationem earum. Aliquam excepturi nobis velit consequuntur. Assumenda nisi esse debitis voluptas aliquid sit dolore. Aut, obcaecati omnis mollitia consequatur adipisci corrupti deserunt assumenda totam dignissimos dolores possimus esse eveniet iusto exercitationem, accusantium excepturi quas.</p>
+        </div>
+    </div>
+</div>
+{%endblock%}

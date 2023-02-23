@@ -1,0 +1,30 @@
+{% extends 'basic/main.html' %}
+{%block title%} this is HOME|PAGE {%endblock%}
+{%block myblock %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Asosiy Sahifa</h1>
+            <hr>
+            <ul>
+                {%for ism in ismlar%}
+                <li>{{ ism }}</li>
+                {%endfor%}
+            </ul>
+            <hr>
+            <ul>
+                {%for fruit in fruits%}
+                <li>{{ fruit }}</li>
+                {%endfor%}
+            </ul>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor sint blanditiis assumenda voluptatibus,
+                ea laborum animi magni tenetur omnis labore totam. Maiores, possimus sint et quae accusamus sequi veniam
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis vitae nesciunt iure obcaecati
+                eligendi accusantium exercitationem earum. Aliquam excepturi nobis velit consequuntur. Assumenda nisi
+                esse debitis voluptas aliquid sit dolore. Aut, obcaecati omnis mollitia consequatur adipisci corrupti
+                deserunt assumenda totam dignissimos dolores possimus esse eveniet iusto exercitationem, accusantium
+                excepturi quas.</p>
+        </div>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,63 @@
+{% extends 'main.html' %}
+
+{% block title %}
+home page
+{% endblock %}
+
+
+
+{% block content %}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Home page</a> 
+      <div class="justify-content-between">
+        <span>Yakunlangan tasklar: {{ user_tasks_count }}</span>
+        <button class="btn btn-outline-info"><a class="text-warning" href="{% url 'create_task' %}"><i class="fa-solid fa-plus fs-4"></i></a></button>
+      </div>
+      <div class="d-flex justify-content-between">
+        <div>
+            <form action="{% url 'home_page' %}" class="d-flex" method="get">
+                <input class="form-control" name="q" type="text" placeholder="Qidiruv...">
+                <button type="submit" class="btn btn-outline-success">Go</button>
+                <button type="submit" class="btn btn-outline-success">Logout <a href="{% url 'logout_user' %}"></a></button>
+            </form>
+        </div>
+        <div>
+    </div>
+  </nav>
+  
+  <div style="max-height: 200px; overflow-y: scroll;">
+    
+    {% if tasks %}
+    {% for task in tasks %}
+
+    <div style="display: flex; justify-content: center;">
+        
+        <div class=" text-start p-3 " style="width: 30%;align-items: center;">
+
+         
+            <div class="card card-title btn btn-outline-dark d-flex p-4 sticky-sm-top">
+
+                  <div class="card-info">
+                    <h5 class="{% if task.complated %}text-info{% endif %}"><h8 style="color: red;">Nomi:</h8> {{ task.title }}</h5>
+                    <h5 class="{% if task.complated %}text-info{% endif %}"><h8 style="color: red;">Narxi:</h8> {{ task.narxi}}</h5>
+                    <h5 class="{% if task.complated %}text-info{% endif %}"><h8 style="color: red;">Malumoti:</h8> {{ task.description}}</h5>
+                    <a href="{% url 'detail_page' ">detail btn</a>
+                    <div><a class="btn btn-danger" href="{% url 'delete_task' task.id %}">Delete</a></div> 
+                  </div>
+
+             
+            </div>    
+        </div>
+
+    </div>
+
+    {% endfor %}
+    {% else %}
+    <h5 class="alert alert-primary">Oka hammasini uchirip tashladingizku logikani ishlating</h5>
+    {% endif %}
+
+  </div>
+  
+{% endblock %}
